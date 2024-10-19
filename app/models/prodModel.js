@@ -16,7 +16,15 @@ required:true
     price : { 
         type:String , 
         required:true
+    } ,
+    images: {
+        type: [String], 
+        required: false // Optional, you can make it required if necessary
     }
+
+
+
+
 },
 
 

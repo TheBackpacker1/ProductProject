@@ -1,8 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose')
-const productRoute = require('../routes/prodRoute');
-
 
 mongoose.Promise = global.Promise
 
@@ -24,12 +22,15 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 
-app.use('/api', productRoute);
+
+
 
 app.get('/', (req, res) => {
     res.json({"message": "Server is running :D"});
 });
 
+require('./app/routes/prodRoute.js')(app);
+ require('./app/routes/commandRoute.js')(app)
 
 let PORT = 8080
 
